@@ -12,23 +12,8 @@ Style/Documentation:
 Metrics/LineLength:
   Max: 120
 
-# Offense count: 1
 Metrics/AbcSize:
   Max: 17
 
-# Offense count: 1
-# Configuration parameters: CountComments.
 Metrics/MethodLength:
   Max: 21
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/BlockComments:
-  Exclude:
-    - 'spec/spec_helper.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/MutableConstant:
-  Exclude:
-    - 'spec/controllers/routes_controller_spec.rb'

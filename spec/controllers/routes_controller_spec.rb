@@ -6,7 +6,7 @@ RSpec.describe RoutesController, type: :controller do
   let!(:sniffers_route) { FactoryGirl.create(:route, data_source: :sniffers) }
   let!(:loopholes_route) { FactoryGirl.create(:route, data_source: :loopholes) }
 
-  PASSPHRASE = 'Kans4s-i$-g01ng-by3-bye'
+  PASSPHRASE = 'Kans4s-i$-g01ng-by3-bye'.freeze
 
   describe '#index' do
     it 'responses with correct data' do

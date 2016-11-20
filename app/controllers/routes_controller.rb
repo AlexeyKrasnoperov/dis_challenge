@@ -1,6 +1,6 @@
 class RoutesController < ApplicationController
   params do
-    validates :source, presence: true, inclusion: %w(sentinels sniffers loopholes)
+    validates :source, presence: true, inclusion: Route::ACCEPTABLE_SOURCES
   end
   def index
     @routes = Route.where(data_source: params[:source])
@@ -10,8 +10,8 @@ class RoutesController < ApplicationController
   params do
     validates :passphrase, inclusion: ['Kans4s-i$-g01ng-by3-bye']
     validates :source, :start_node, :end_node, :start_time, :end_time, presence: true
-    validates :source, inclusion: %w(sentinels sniffers loopholes)
-    validates :start_node, :end_node, inclusion: %w(alpha beta gamma delta theta lambda tau psi omega)
+    validates :source, inclusion: Route::ACCEPTABLE_SOURCES
+    validates :start_node, :end_node, inclusion: Route::ACCEPTABLE_NODES
     validates :start_time, :end_time, format: { with: /\A[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\z/ }
   end
   # end time should be > start time
