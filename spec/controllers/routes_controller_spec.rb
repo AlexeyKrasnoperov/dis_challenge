@@ -22,19 +22,19 @@ RSpec.describe RoutesController, type: :controller do
 
     it 'returns error for incorrect source' do
       expect { get :index, params: { source: :mr_smith } }
-          .to raise_error(BadRequestError, 'Source is not included in the list')
+        .to raise_error(BadRequestError, 'Source is not included in the list')
     end
   end
 
   describe '#create' do
     it 'responses with correct status' do
       post :create, params: {
-          passphrase: PASSPHRASE,
-          source: :sentinels,
-          start_node: :alpha,
-          end_node: :beta,
-          start_time: '2016-11-20T16:00:00',
-          end_time: '2016-11-21T01:15:00'
+        passphrase: PASSPHRASE,
+        source: :sentinels,
+        start_node: :alpha,
+        end_node: :beta,
+        start_time: '2016-11-20T16:00:00',
+        end_time: '2016-11-21T01:15:00'
       }
 
       expect(response).to have_http_status(:no_content)
@@ -43,12 +43,12 @@ RSpec.describe RoutesController, type: :controller do
     it 'changes Routes count' do
       expect do
         post :create, params: {
-            passphrase: PASSPHRASE,
-            source: :sentinels,
-            start_node: :alpha,
-            end_node: :beta,
-            start_time: '2016-11-20T16:00:00',
-            end_time: '2016-11-21T01:15:00'
+          passphrase: PASSPHRASE,
+          source: :sentinels,
+          start_node: :alpha,
+          end_node: :beta,
+          start_time: '2016-11-20T16:00:00',
+          end_time: '2016-11-21T01:15:00'
         }
       end.to change { Route.count }.by(1)
     end
@@ -56,12 +56,12 @@ RSpec.describe RoutesController, type: :controller do
     it 'returns error for incorrect passphrase' do
       expect do
         post :create, params: {
-            passphrase: 'incorrect_passphrase',
-            source: :sentinels,
-            start_node: :alpha,
-            end_node: :beta,
-            start_time: '2016-11-20T16:00:00',
-            end_time: '2016-11-21T01:15:00'
+          passphrase: 'incorrect_passphrase',
+          source: :sentinels,
+          start_node: :alpha,
+          end_node: :beta,
+          start_time: '2016-11-20T16:00:00',
+          end_time: '2016-11-21T01:15:00'
         }
       end.to raise_error(BadRequestError, 'Passphrase is not included in the list')
     end
@@ -69,27 +69,26 @@ RSpec.describe RoutesController, type: :controller do
     it 'returns error if not all mandatory params passed' do
       expect do
         post :create, params: {
-            passphrase: PASSPHRASE,
-            start_node: :alpha,
-            end_node: :beta,
-            start_time: '2016-11-20T16:00:00',
-            end_time: '2016-11-21T01:15:00'
+          passphrase: PASSPHRASE,
+          start_node: :alpha,
+          end_node: :beta,
+          start_time: '2016-11-20T16:00:00',
+          end_time: '2016-11-21T01:15:00'
         }
       end.to raise_error(BadRequestError, 'Source can\'t be blank')
     end
 
     it 'returns error for incorrect params' do
       expect do
-      post :create, params: {
+        post :create, params: {
           passphrase: PASSPHRASE,
           source: :mr_smith,
           start_node: :alpha,
           end_node: :beta,
           start_time: '2016-11-20T16:00:00',
           end_time: '2016-11-21T01:15:00'
-      }
+        }
       end.to raise_error(BadRequestError, 'Source is not included in the list')
     end
   end
-
 end

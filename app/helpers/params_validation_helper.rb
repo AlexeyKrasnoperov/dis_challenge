@@ -29,7 +29,7 @@ module ParamsValidationHelper
       before_action only: [method] do
         request_params = validator.new(params)
         if request_params.invalid?
-          fail BadRequestError.new('invalid_param', request_params.errors.full_messages.first)
+          raise BadRequestError.new('invalid_param', request_params.errors.full_messages.first)
         end
       end
     end

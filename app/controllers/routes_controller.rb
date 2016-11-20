@@ -12,7 +12,7 @@ class RoutesController < ApplicationController
     validates :source, :start_node, :end_node, :start_time, :end_time, presence: true
     validates :source, inclusion: %w(sentinels sniffers loopholes)
     validates :start_node, :end_node, inclusion: %w(alpha beta gamma delta theta lambda tau psi omega)
-    validates :start_time, :end_time, format: { with: /\A[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\z/}
+    validates :start_time, :end_time, format: { with: /\A[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\z/ }
   end
   # end time should be > start time
   def create

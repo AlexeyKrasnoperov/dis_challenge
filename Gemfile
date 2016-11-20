@@ -2,12 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'puma', '~> 3.0'
-gem 'jbuilder'
+gem 'jbuilder', '~> 2.6.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'mysql2'
-gem 'active_model_serializers'#, '~>0.10.0'
+gem 'mysql2', '~> 0.4'
+gem 'active_model_serializers', '~>0.10.0'
 
 group :development, :test do
   gem 'rspec-rails'
