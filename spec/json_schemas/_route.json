@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Route",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "enum": [
+        "sentinels", "sniffers", "loopholes"
+      ]
+    },
+    "start_node": {
+      "type": "string",
+      "enum": [
+        "alpha", "beta", "gamma", "delta", "theta", "lambda", "tau", "psi", "omega"
+      ]
+    },
+    "end_node": {
+      "type": "string",
+      "enum": [
+        "alpha", "beta", "gamma", "delta", "theta", "lambda", "tau", "psi", "omega"
+      ]
+    },
+    "start_time": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}$"
+    },
+    "end_time": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}$"
+    }
+  },
+  "required": [
+    "source",
+    "start_node",
+    "end_node",
+    "start_time",
+    "end_time"
+  ],
+  "additionalProperties": false
+}
